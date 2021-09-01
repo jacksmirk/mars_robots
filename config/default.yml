@@ -1,0 +1,10 @@
+initial_message: Welcome to Mars Robots App!
+commands:
+  F: moveForward
+  L: turnLeft
+  R: turnRight
+directions:
+  - N
+  - W
+  - S
+  - E

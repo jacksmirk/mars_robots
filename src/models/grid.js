@@ -1,13 +1,14 @@
-const tag = '[MessageModel]';
+const tag = '[GridModel]';
 
 export default {
   // get Initial Msg from Server
-  getInitMsg () {
-    console.log(tag, 'getInitMsg()');
+  createGrid(message) {
+    console.log(tag, 'getNewGrid()')
     if (window.fetch) {
-      return fetch('/messages', {
-        method: 'get',
-        headers: { 'Content-Type': 'application/json' }
+      return fetch('/grids', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: { msg: message }
       })
         .then(res => res.json())
         .then(json => json.msg)
@@ -16,13 +17,13 @@ export default {
     // for IE
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
-      xhr.open('get', '/messages', true);
+      xhr.open('post', '/grids', true);
       xhr.setRequestHeader('Content-type', 'application/json');
       xhr.onload = function () {
         let msg = JSON.parse(this.responseText).msg;
         resolve(msg);
       }
-      xhr.send();
+      xhr.send({ msg: message });
     });
   }
-}
+};

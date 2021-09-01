@@ -1,21 +1,21 @@
 <template>
   <div id="app">
     <img alt="Vue logo" width="144" src="./assets/robot.png">
-    <HelloWorld :msg="greeting"/>
+    <Layout :msg="greeting"/>
   </div>
 </template>
 
 <script>
 // componenets
-import HelloWorld from './components/HelloWorld.vue'
+import Layout from './components/Layout.vue'
 
 // models
-import msg from './models/Message.js'
+import msg from './models/message.js'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Layout
   },
   data () {
     return {

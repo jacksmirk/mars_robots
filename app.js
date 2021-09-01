@@ -6,7 +6,10 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 
-const messageRouter = require('./routes/message')
+const grid = {};
+const robotsRouter = require('./routes/robots')(grid);
+const gridsRouter = require('./routes/grids')(grid);
+const messagesRouter = require('./routes/messages');
 
 const app = express()
 
@@ -16,7 +19,9 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'dist')))
 
-app.use('/message', messageRouter)
+app.use('/robots', robotsRouter)
+app.use('/messages', messagesRouter)
+app.use('/grids', gridsRouter)
 
 /**
  * Get port from environment and store in Express.
@@ -67,7 +72,7 @@ function onError(error) {
     ? 'Pipe ' + port
     : 'Port ' + port
 
-  // handle specific listen errors with friendly messages
+  // handle specific listen errors with friendly instructionss
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges')

@@ -1,5 +1,5 @@
 {
-  "name": "MarsRobots",
+  "name": "mars_robots",
   "description": "Mars Robots navigation simulator",
   "main": "app.js",
   "private": true,
@@ -10,6 +10,7 @@
     "start": "concurrently \"npm run frontend\" \"npm run backend\" "
   },
   "dependencies": {
+    "config": "^3.3.6",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
@@ -22,6 +23,7 @@
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "concurrently": "^4.1.0",
+    "element-ui": "^2.15.5",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0-0",
     "node-sass": "^4.9.0",
