@@ -1,4 +1,5 @@
-const commandsController = function() {};
+const CommandsController = function() {
+};
 
 /**
  * Calculates robot's next position 
@@ -6,7 +7,7 @@ const commandsController = function() {};
  * @param {string} direction current direction
  * @returns {object}
  */
-commandsController.prototype.moveForward = function moveForward(position, direction) {
+CommandsController.prototype.moveForward = function moveForward(position, direction) {
   const newPosition = [...position];
   switch (direction) {
     case 'N':
@@ -33,8 +34,8 @@ commandsController.prototype.moveForward = function moveForward(position, direct
  * @param {string} direction current direction
  * @returns {object}
  */
-commandsController.prototype.turnRight = function turnRight(position, direction) {
-  const newDirection = '';
+CommandsController.prototype.turnRight = function turnRight(position, direction) {
+  let newDirection = '';
   switch (direction) {
     case 'N':
       newDirection = 'E';
@@ -60,8 +61,8 @@ commandsController.prototype.turnRight = function turnRight(position, direction)
  * @param {string} direction current direction
  * @returns {object}
  */
-commandsController.prototype.turnLeft = function turnLeft(position, direction) {
-  const newDirection = '';
+CommandsController.prototype.turnLeft = function turnLeft(position, direction) {
+  let newDirection = '';
   switch (direction) {
     case 'N':
       newDirection = 'W';
@@ -81,4 +82,4 @@ commandsController.prototype.turnLeft = function turnLeft(position, direction) {
   return { position, direction: newDirection }; 
 };
 
-module.exports = commandsController;
+module.exports = CommandsController;

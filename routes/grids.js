@@ -22,6 +22,13 @@ const gridsRouter = function(grid) {
     }
   });
 
+  /**
+   * Sends back the current robot id
+   */
+  router.get('/robots/current', (req,res, next) => {
+    res.status(200).json({ id: grid.currentRobot }).end();
+  });
+
   return router;
 }
 

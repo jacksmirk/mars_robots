@@ -1,4 +1,4 @@
-const gridsController = function gridsController() {};
+const GridsController = function GridsController() {};
 
 /**
  * Checks new position in grid and return wheter the robot is lost or if the movement can be done
@@ -7,7 +7,7 @@ const gridsController = function gridsController() {};
  * @param {array} newPosition the position the robot is trying to move to
  * @returns {object}
  */
-gridsController.prototype.checkNewPosition = function checkPosition(grid, currentPosition, newPosition) {
+GridsController.prototype.checkNewPosition = function checkPosition(grid, currentPosition, newPosition) {
   if (newPosition[0] < 0 || newPosition[1] < 0 || newPosition[0] > grid.limits.x || newPosition[1] > grid.limits.y) {
     const lostRobotInCurrentPosition = grid.robots
       .find( robot => robot.status === 'lost' && robot.position[0] === currentPosition[0] && robot.position[1] === currentPosition[1] );
@@ -18,3 +18,5 @@ gridsController.prototype.checkNewPosition = function checkPosition(grid, curren
   }
   return { canMove: true, lost: false };
 };
+
+module.exports = GridsController;
