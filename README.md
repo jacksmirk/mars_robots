@@ -6,9 +6,9 @@ Mars Robots navigation simulator
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Concurrently run backend and frontend
 ```
-npm run serve
+npm run start
 ```
 
 ### Compiles and minifies for production
@@ -16,12 +16,13 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
+### Run unit tests
+_The application must be running first_
 ```
-npm run test
+npm test
 ```
 
-### Lints and fixes files
+### Lints files
 ```
 npm run lint
 ```
