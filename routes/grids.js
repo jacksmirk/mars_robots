@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const jsonParser = express.json();
 
-const gridsRouter = function(grid) {
+const gridsRouter = function (grid) {
   /**
    * Initializes the grid
    */
-  router.post('/', jsonParser, (req, res, next) => {
+  router.post('/', jsonParser, (req, res) => {
     const msg = req.body && req.body.msg;
     const coords = msg && msg.split(' ');
     const coordsValid = coords && Array.isArray(coords) && coords.length === 2;
@@ -25,11 +25,11 @@ const gridsRouter = function(grid) {
   /**
    * Sends back the current robot id
    */
-  router.get('/robots/current', (req,res, next) => {
+  router.get('/robots/current', (req, res) => {
     res.status(200).json({ id: grid.currentRobot }).end();
   });
 
   return router;
-}
+};
 
 module.exports = gridsRouter;
