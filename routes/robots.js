@@ -45,16 +45,16 @@ const robotsRouter = function(grid) {
     const commandsData = req.body.msg && req.body.msg.split('');
     const robot = grid.robots[req.params.id];
     if (robot) {
-      let error = '';
       const finalRobotState = commandsData.reduce((robotData, command) => {
         const commandMethod = commands[command];
-        console.log('commandMethod', commandMethod);
-        console.log('controller commandMethod', commandsController[commandMethod]);
         if (!robotData.lost && !robotData.error && commandsController[commandMethod]) {
           const newState = commandsController[commandMethod](robotData.position, robotData.direction);
           const newPositionCheck = gridsController.checkNewPosition(grid, robotData.position, newState.position);
           if (newPositionCheck.canMove) {
-            newState.lost = newPositionCheck.lost;
+            if (newPositionCheck.lost) {
+              robotData.lost = true;
+              return robotData;
+            }
             return newState;
           }
           return robotData;
@@ -64,7 +64,6 @@ const robotsRouter = function(grid) {
         }
         return { error: 'Method not implemented' };
       }, { position: robot.position, direction: robot.direction });
-      console.log('finalRobotState', finalRobotState);
       if (finalRobotState.error) {
         res.status(500).json({ error: finalRobotState.error }).end();
       } else {

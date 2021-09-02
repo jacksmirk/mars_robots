@@ -1,4 +1,5 @@
-# v-template
+# Mars Robots
+Mars Robots navigation simulator
 
 ## Project setup
 ```
@@ -25,5 +26,4 @@ npm run test
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+

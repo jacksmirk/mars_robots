@@ -10,8 +10,8 @@ const GridsController = function GridsController() {};
 GridsController.prototype.checkNewPosition = function checkPosition(grid, currentPosition, newPosition) {
   if (newPosition[0] < 0 || newPosition[1] < 0 || newPosition[0] > grid.limits.x || newPosition[1] > grid.limits.y) {
     const lostRobotInCurrentPosition = grid.robots
-      .find( robot => robot.status === 'lost' && robot.position[0] === currentPosition[0] && robot.position[1] === currentPosition[1] );
-    if (lostRobotInCurrentPosition !== -1) {
+      .findIndex( robot => robot.lost === true && robot.position[0] === currentPosition[0] && robot.position[1] === currentPosition[1] );
+    if (lostRobotInCurrentPosition === -1) {
       return { canMove: true, lost: true };
     }
     return { canMove: false, lost: false };

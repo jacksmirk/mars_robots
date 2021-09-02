@@ -3,7 +3,7 @@ const tag = '[GridModel]';
 
 export default {
   createGrid(message) {
-    console.log(tag, 'getNewGrid()')
+    console.log(tag, 'createGrid()')
     return axios.post('/grids', { msg: message })
       .then(res => res.data)
       .catch(err => { 
@@ -12,7 +12,7 @@ export default {
       });
   },
   getCurrentRobotId() {
-    console.log(tag, 'getNewGrid()')
+    console.log(tag, 'getCurrentRobotId()')
     return axios.get('/grids/robots/current')
       .then(res => res.data.id)
       .catch(err => { 
