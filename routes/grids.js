@@ -34,6 +34,13 @@ const gridsRouter = function gridsRouter(grid) {
     res.status(200).json({ id: grid.currentRobot }).end();
   });
 
+  /**
+   * Returns the grid
+   */
+  router.get('/', (req, res) => {
+    res.status(200).json({ grid }).end();
+  });
+
   return router;
 };
 
