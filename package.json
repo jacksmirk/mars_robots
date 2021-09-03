@@ -7,7 +7,9 @@
     "frontend": "webpack --config ./node_modules/@vue/cli-service/webpack.config.js --watch",
     "backend": "nodemon app.js",
     "build": "vue-cli-service build",
-    "start": "concurrently \"npm run frontend\" \"npm run backend\" "
+    "start": "concurrently \"npm run frontend\" \"npm run backend\" ",
+    "test": "ava",
+    "lint": "npx eslint app.js routes/** controllers/**"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -16,22 +18,26 @@
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "morgan": "~1.9.0",
-    "request": "^2.88.0"
-  },
-  "devDependencies": {
+    "element-ui": "^2.15.5",
+    "vue": "^2.5.17",
     "@vue/cli-plugin-babel": "^3.2.0",
     "@vue/cli-service": "^3.2.0",
     "@vue/eslint-config-standard": "^4.0.0",
-    "babel-eslint": "^10.0.1",
     "concurrently": "^4.1.0",
-    "element-ui": "^2.15.5",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0-0",
+    "request": "^2.88.0",
     "node-sass": "^4.9.0",
     "nodemon": "^1.18.9",
     "sass-loader": "^7.0.1",
-    "vue": "^2.5.17",
     "vue-template-compiler": "^2.5.17",
     "webpack-cli": "^3.2.1"
+  },
+  "devDependencies": {
+    "ava": "^3.15.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-html": "^6.1.2",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-vue": "^7.17.0",
   }
 }

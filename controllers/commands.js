@@ -1,8 +1,8 @@
-const CommandsController = function() {
+const CommandsController = function CommandsController() {
 };
 
 /**
- * Calculates robot's next position 
+ * Calculates robot's next position
  * @param {array} position current position in grid
  * @param {string} direction current direction
  * @returns {object}
@@ -11,16 +11,16 @@ CommandsController.prototype.moveForward = function moveForward(position, direct
   const newPosition = [...position];
   switch (direction) {
     case 'N':
-      newPosition[1] = newPosition[1] + 1;
+      newPosition[1] += 1;
       break;
     case 'S':
-      newPosition[1] = newPosition[1] - 1;
+      newPosition[1] -= 1;
       break;
     case 'E':
-      newPosition[0] = newPosition[0] + 1;
+      newPosition[0] += 1;
       break;
     case 'W':
-      newPosition[0] = newPosition[0] - 1;
+      newPosition[0] -= 1;
       break;
     default:
       break;
@@ -52,7 +52,7 @@ CommandsController.prototype.turnRight = function turnRight(position, direction)
     default:
       break;
   }
-  return { position, direction: newDirection }; 
+  return { position, direction: newDirection };
 };
 
 /**
@@ -79,7 +79,7 @@ CommandsController.prototype.turnLeft = function turnLeft(position, direction) {
     default:
       break;
   }
-  return { position, direction: newDirection }; 
+  return { position, direction: newDirection };
 };
 
 module.exports = CommandsController;
