@@ -1,8 +1,10 @@
 # Changelog
 
-## Unversioned
+## Version 1.1.0 (2021-09-03)
 ### New
 * Add eslint
+* Add ava
+* Add tests
 
 ### Fix
 * Fix lint issues
